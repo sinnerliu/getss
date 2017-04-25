@@ -3,6 +3,13 @@
 import requests
 from bs4 import BeautifulSoup
 
+
+mail = os.getenv('mail')
+mail1 = os.getenv('mail1')
+password = os.getenv('password')
+
+
+
 def sspanel_v2(url,email,pwd,ss_conf):
     headers = {
         'Host': url,
@@ -64,17 +71,18 @@ def send_simple_message(sms):
               "subject": "ss node info",
               "text": sms})
 
-ss_conf=[]
-sspanel_v2_url=[
-    ['s2.ysee.me','liu-yan1990@qq.com','284716337'],
-    ['www.ry-ss.tk','liu-yan1990@qq.com','284716337'],
-    ['www.qinwi.net','liu-yan@qq.com','284716337']
-]
+if __name__ == '__main__':
+    ss_conf=[]
+    sspanel_v2_url=[
+        ['s2.ysee.me',mail,password],
+        ['www.ry-ss.tk',mail,password],
+        ['www.qinwi.net',mail1,password]
+    ]
 
-for urlinfo in sspanel_v2_url:
-    print(urlinfo[0])
-    sspanel_v2(urlinfo[0],urlinfo[1],urlinfo[2],ss_conf)
+    for urlinfo in sspanel_v2_url:
+        print(urlinfo[0])
+        sspanel_v2(urlinfo[0],urlinfo[1],urlinfo[2],ss_conf)
 
-send_simple_message(ss_conf)
+    send_simple_message(ss_conf)
 
-print("over!")
+    print("over!")

@@ -2,7 +2,7 @@
 
 import requests
 from bs4 import BeautifulSoup
-
+import os
 
 mail = os.getenv('mail')
 mail1 = os.getenv('mail1')

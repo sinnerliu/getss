@@ -7,6 +7,7 @@ import os
 mail = os.getenv('mail')
 mail1 = os.getenv('mail1')
 password = os.getenv('password')
+api_key = os.getenv('api_key')
 
 
 
@@ -65,7 +66,7 @@ def sspanel_v2(url,email,pwd,ss_conf):
 def send_simple_message(sms):
     return requests.post(
         "https://api.mailgun.net/v3/sandbox3a97c3cdddf14319a592252d5a6a0192.mailgun.org/messages",
-        auth=("api", "key-6d8df97c32b342f06672da4165180c9e"),
+        auth=("api", api_key),
         data={"from": "Mailgun Sandbox <postmaster@sandbox3a97c3cdddf14319a592252d5a6a0192.mailgun.org>",
               "to": "dataos <mail.dataos@mailhero.io>",
               "subject": "ss node info",

@@ -27,7 +27,7 @@ def sspanel_v2(url,email,pwd,ss_conf):
 
     # login = session.post('https://'+url+'/auth/login', data=data, headers=headers, proxies=proxies)
     login = session.post('https://' + url + '/auth/login', data=data, headers=headers)
-    #Ç©µ½
+    #ç­¾åˆ°
     session.post('https://'+url+'/user/checkin', headers=headers)
 
     re = session.get('https://'+url+'/user').content.decode('UTF-8')
@@ -41,7 +41,7 @@ def sspanel_v2(url,email,pwd,ss_conf):
     soup = BeautifulSoup(re_ss, "lxml")
     ss_num = len(soup.select(".product-info"))
     # print(ss_num)
-    ss_conf.append("# ÍøÖ·£º"+url+" ½ÚµãÊı£º"+str(ss_num)+" ×ÜÁ÷Á¿£º" + total + " Ê¹ÓÃÁ÷Á¿£º" + used + " Ê£ÓàÁ÷Á¿£º" + surplus + " ×îºóÇ©µ½Ê±¼ä£º" + last_signed )
+    ss_conf.append("# ç½‘å€ï¼š"+url+" èŠ‚ç‚¹æ•°ï¼š"+str(ss_num)+" æ€»æµé‡ï¼š" + total + " ä½¿ç”¨æµé‡ï¼š" + used + " å‰©ä½™æµé‡ï¼š" + surplus + " æœ€åç­¾åˆ°æ—¶é—´ï¼š" + last_signed )
     for ss_node in soup.select(".product-info"):
         node1 = ss_node.select(".product-title")[0]['href'].replace('.', '')
         country = soup.select(".product-title")[0].get_text().split(" ")[0]
@@ -50,7 +50,7 @@ def sspanel_v2(url,email,pwd,ss_conf):
         soup_node = BeautifulSoup(re_node, "lxml")
         ss_json = soup_node.select(".form-control")[0].get_text()
         ss_info = "#"+country + "\n" + ss_json
-        print("# ÍøÖ·£º"+url+" ½ÚµãÊı£º"+str(ss_num)+" ×ÜÁ÷Á¿£º" + total + " Ê¹ÓÃÁ÷Á¿£º" + used + " Ê£ÓàÁ÷Á¿£º" + surplus + " ×îºóÇ©µ½Ê±¼ä£º" + last_signed)
+        print("# ç½‘å€ï¼š"+url+" èŠ‚ç‚¹æ•°ï¼š"+str(ss_num)+" æ€»æµé‡ï¼š" + total + " ä½¿ç”¨æµé‡ï¼š" + used + " å‰©ä½™æµé‡ï¼š" + surplus + " æœ€åç­¾åˆ°æ—¶é—´ï¼š" + last_signed)
         ss_conf.append(ss_info)
     # print(ss_conf)
     # send_simple_message(ss_conf)

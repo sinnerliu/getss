@@ -75,8 +75,7 @@ def send_simple_message(sms):
 if __name__ == '__main__':
     ss_conf=[]
     sspanel_v2_url=[
-        ['s2.ysee.me',mail,password],
-        ['www.qinwi.net',mail1,password]
+        ['s2.ysee.me',mail,password]
     ]
 
     for urlinfo in sspanel_v2_url:

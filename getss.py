@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 import os
 
 mail = os.getenv('mail')
-mail1 = os.getenv('mail1')
 password = os.getenv('password')
 api_key = os.getenv('api_key')
 
@@ -75,7 +74,10 @@ def send_simple_message(sms):
 if __name__ == '__main__':
     ss_conf=[]
     sspanel_v2_url=[
-        ['s2.ysee.me',mail,password]
+        ['s2.ysee.me',mail,password],
+        ['www.libertyss.cn', mail, password],
+        ['ssplain.com', mail, password]
+
     ]
 
     for urlinfo in sspanel_v2_url:

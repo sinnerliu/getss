@@ -75,8 +75,8 @@ if __name__ == '__main__':
     ss_conf=[]
     sspanel_v2_url=[
         ['s2.ysee.me',mail,password],
-        ['www.libertyss.cn', mail, password],
-        ['ssplain.com', mail, password]
+        ['ssplain.com', mail, passwd],
+        ['www.libertyss.cn', mail, passwd]
 
     ]
 

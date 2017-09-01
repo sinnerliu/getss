@@ -53,7 +53,7 @@ def cccat(url,email,pwd):
     lastUsed=trafficContents[0][2]
     lastCheckin=trafficContents[0][3]
     userInfo=tracfficInfo+" "+lastUsed+" "+lastCheckin
-    # print(userInfo)
+    print(userInfo)
 
     #节点信息
     nodesPage=session.get(nodeUrl).text
@@ -69,7 +69,7 @@ def cccat(url,email,pwd):
         patternQR=re.compile(r'<p class="well well-sm" style="overflow-wrap: break-word;">(ssr://.*?)</p>',re.S)
         ssrUrl=re.findall(patternQR,nodeQRPage)
         ssrInfo=ssrLocation.strip()+"\r\n"+ssrUrl[1].strip()
-        print(ssrInfo)
+        # print(ssrInfo)
         ssrInfos.append(ssrInfo)
     # print(ssrInfos)
     send_simple_message(ssrInfos)

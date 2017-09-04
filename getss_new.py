@@ -6,6 +6,7 @@ import re,os
 mail = os.getenv('mail')
 password = os.getenv('password')
 api_key = os.getenv('api_key')
+send_mail=os.getenv('send_mail')
 
 headers={
     "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
@@ -20,7 +21,7 @@ def send_simple_message(sms):
         "https://api.mailgun.net/v3/sandbox3a97c3cdddf14319a592252d5a6a0192.mailgun.org/messages",
         auth=("api", api_key),
         data={"from": "Mailgun Sandbox <postmaster@sandbox3a97c3cdddf14319a592252d5a6a0192.mailgun.org>",
-              "to": "dataos <mail.dataos@mailhero.io>",
+              "to": "dataos <%s>" % send_mail,
               "subject": "ss node info",
               "text": sms})
 
